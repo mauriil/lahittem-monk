@@ -4,6 +4,7 @@ const express = require('express');
 const routes = require('./routes/index');
 const app = express();
 const fs = require('fs');
+const logger = require('./services/winston');
 let storedJson = (config.get('JSON_FILE'));
 
 if (!fs.existsSync(storedJson)){
@@ -17,14 +18,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/v1', routes);
 
 const server = app.listen(app.get('port'), () => {
-    console.log(`Server bound on port: ${app.get('port')}`);
+    logger.info(`Server bound on port: ${app.get('port')}`);
 });
 
 
 const ioServer = require('socket.io')(server);
 ioServer.on('connection', socket =>{
     //socket.write('Connected, you can now send key-value pair to store')
-    console.log(socket.id);
+    logger.info(`New socket connection, id: ${socket.id}`);
 
     socket.on('new:keyPair', data =>{
         dataInJson = JSON.parse(fs.readFileSync(storedJson))
@@ -32,9 +33,9 @@ ioServer.on('connection', socket =>{
         
         fs.writeFile(storedJson, JSON.stringify(dataInJson), (err) => {
             if (err) {
-                console.error('Failed to write starter kits file: ', err);
+                logger.error('Failed to write data, err: ', err);
             } else{
-                console.log('Fetched 1 file: _starter-kits.json');
+                logger.info('Key value stored');
             } 
         });
     });
