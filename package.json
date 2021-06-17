@@ -4,6 +4,7 @@
   "description": "Monk Server with REST endpoint",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "nodeDev": "nodemon server.js",
     "test": "mocha --exit"
   },
