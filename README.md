@@ -1,4 +1,4 @@
-# Mongo-Assignment - Lahitte Mauricio #
+# Monk-Assignment - Lahitte Mauricio #
 
 Project for MediaMonks made by an enthusiastic coder wishing to be part of the monks 🧘‍♂️
 
