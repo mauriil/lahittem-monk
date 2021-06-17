@@ -50,6 +50,6 @@ npm test
 ```
 and the results will be displayed at the console.
 
-## Author ✒️##
+## Author ✒️
 
 * [Lahite, Mauricio Eduardo](https://www.linkedin.com/in/mauricio-lahitte/)
