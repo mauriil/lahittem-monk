@@ -1,0 +1,21 @@
+{
+  "name": "monk-test",
+  "version": "1.0.0",
+  "description": "Monk Server with REST endpoint",
+  "main": "index.js",
+  "scripts": {
+    "nodeDev": "nodemon server.js",
+    "test": "testCommand"
+  },
+  "keywords": [
+    "MKT"
+  ],
+  "author": "Lahitte, Mauricio Eduardo",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2",
+    "socket.io-client": "^4.1.2"
+  }
+}
