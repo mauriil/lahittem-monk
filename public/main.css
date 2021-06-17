@@ -1,0 +1,42 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+#container {
+    max-width: 600px;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(8, 8, 8, .5);
+}
+
+#result-container {
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: center;
+    color: rgb(15, 109, 12);
+    text-shadow: 1px;
+    visibility: hidden;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(8, 8, 8, .5);
+    
+}
+
+#txtkey, #txtvalue{
+    background: #ececec;
+    color: rgb(36, 33, 33);
+    font-size: 18px;
+    border: 0px;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 0 0 20;
+}
+
+#send {
+    background: #575ed8;
+    color: #fff;
+    font-size: 18px;
+    border: 0px;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 0 0 20;
+}

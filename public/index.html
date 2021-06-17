@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet"> 
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <title>Monk test | Lahitte </title>
 </head>
 <body>
 
-    <input type="text" id="txtkey">
-    <input type="text" id="txtvalue">
-    <button id="send">SEND</button>
+    <div id="container">
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 20%; text-align: center;" ><b>KEY</b></td>
+                <td style="width: 80%;"><input type="text" id="txtkey"></td>
+            </tr>
+            <tr>
+                <td style="width: 20%; text-align: center;" ><b>VALUE</b></td>
+                <td style="width: 80%;"><input type="text" id="txtvalue"></td>
+            </tr>
+        </table>
+        
+        <button id="send">SEND</button>
+    </div>
+
+    <div id="result-container">
+        <p id="textResult"></p>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="client.js"></script>
