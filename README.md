@@ -36,6 +36,9 @@ This project has a enviroment config file maded thanks to the [config library (n
 
 You can modify the values in it, or just make your own configs in another file inside the _'config'_ folder.
 Notice you have to change the enviroment before initializate it:
+
+### Changin the enviroment  ⌨️ ###
+
 * set NODE_ENV=development (Linux and Mac)
 * $env:NODE_ENV="development" (Windows)
 
