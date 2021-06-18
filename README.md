@@ -26,9 +26,19 @@ After the install process you just have to run:
 ```
 npm start
 ```
-and the server will bound with the default configuration.
+and the server will bound with the default configuration. You will see "Server up and running on port 80" on the console.
 
 In this point, you will notice that a json file _'data/keyvalues.json'_ will be created for store the key values pair sended by the web socket client. And a log file _'logs/server.log'_ for the server logs.
+
+### WebSocket server ###
+To access the websocket server with the default configuration, acces to _'http://localhost:80'_ in your browser, you will see the homepage to send keyvalues pairs.
+To send a key:value pair just fill the form and click _"SEND"_
+
+### REST API Endpoint ###
+To retrieve a value of a certain key you have two options:
+1_ In the browser, put the URL: _'http://localhost:80/v1/key/YOURKEY'_ .
+2_ In Postman, make a new GET request to _'http://localhost:80/v1/key/YOURKEY'_ .
+
 
 ## Misc configuration ⚙️ ##
 

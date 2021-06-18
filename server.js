@@ -7,25 +7,41 @@ const fs = require('fs');
 const logger = require('./services/winston');
 let storedJson = (config.get('JSON_FILE'));
 
-if (!fs.existsSync(storedJson)){
-    fs.writeFile(storedJson, "{}", function(err, result) {
-        if(err) console.log('error creating data file', err);
-    });
-}
+
+try {
+    if (!fs.existsSync("./data")) {         
+        fs.mkdir(path.join(__dirname, 'data'), (err) => {
+            if (err) {
+                return console.error(err);
+            }
+            logger.debug('Directory created successfully!');
+        });
+    } 
+
+    if (!fs.existsSync(storedJson)){
+        fs.writeFile(storedJson, "{}", function(err, result) {
+            if(err) console.log('error creating data file', err);
+        });
+    }
+
+  } catch(e) {
+    console.log("An error occurred.")
+  }
+
 
 app.set('port', config.get('WEB_SERVER_PORT') || 8080);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/v1', routes);
 
 const server = app.listen(app.get('port'), () => {
-    logger.info(`Server bound on port: ${app.get('port')}`);
+    logger.debug(`Server up and running on port: ${app.get('port')}`);
 });
 
 
 const ioServer = require('socket.io')(server);
 ioServer.on('connection', socket =>{
-    //socket.write('Connected, you can now send key-value pair to store')
-    logger.info(`New socket connection, id: ${socket.id}`);
+
+    logger.debug(`New socket connection, id: ${socket.id}`);
 
     socket.on('new:keyPair', data =>{
         dataInJson = JSON.parse(fs.readFileSync(storedJson))
@@ -35,7 +51,8 @@ ioServer.on('connection', socket =>{
             if (err) {
                 logger.error('Failed to write data, err: ', err);
             } else{
-                logger.info('Key value stored');
+                logger.info(`New key value stored ${data.key}: ${data.value}`);
+                logger.debug('Key value pair stored succesfuly');
             } 
         });
     });
