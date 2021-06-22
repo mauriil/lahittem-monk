@@ -38,6 +38,7 @@ try {
     logger.debug(`Server up and running on port: ${app.get('port')}`);
   });
 
+  // eslint-disable-next-line global-require
   const ioServer = require('socket.io')(server);
   ioServer.on('connection', (socket) => {
     logger.debug(`New socket connection, id: ${socket.id}`);
