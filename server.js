@@ -3,7 +3,6 @@ const path = require('path');
 const config = require('config');
 const express = require('express');
 const fs = require('fs');
-const ioServer = require('socket.io');
 const routes = require('./routes/index');
 const logger = require('./services/winston');
 
@@ -39,7 +38,7 @@ try {
     logger.debug(`Server up and running on port: ${app.get('port')}`);
   });
 
-  ioServer(server);
+  const ioServer = require('socket.io')(server);
   ioServer.on('connection', (socket) => {
     logger.debug(`New socket connection, id: ${socket.id}`);
     socket.on('new:keyPair', (data) => {
